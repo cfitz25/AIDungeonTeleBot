@@ -458,6 +458,7 @@ def message_handle(update, context):
             update.message.reply_text("Error invalid choice. ")
     elif game_state == "begin_load":
             #load
+            update.message.reply_text("Death")
     elif game_state == "begin_new":
         
         if(result in ["0","yes"]):
@@ -486,7 +487,7 @@ def message_handle(update, context):
         settings = game_dict["data"]["settings"].keys()
         done = False
         for i, setting in enumerate(settings):
-            if(result in (str(i),setting))):
+            if(result in (str(i),setting)):
                 game_dict["setting_key"] = i
                 done = True
                 break
@@ -514,7 +515,7 @@ def message_handle(update, context):
             characters = game_dict["data"]["settings"][game_dict["setting_key"]]["characters"]
             done = False
             for i, character in enumerate(characters):
-                if(result in (str(i),character))):
+                if(result in (str(i),character)):
                     done = True
                     game_dict["character_key"] = list(characters)[i]
             if done == False:
